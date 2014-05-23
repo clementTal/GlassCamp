@@ -24,7 +24,7 @@ public class GlassCamp extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        createCards();
+        createFirstLevelCards();
 
         cardScrollView = new CardScrollView(this);
         MyCardScrollAdapter adapter = new MyCardScrollAdapter(cards);
@@ -41,34 +41,33 @@ public class GlassCamp extends Activity {
                 tappedCard();
             }
         });
-
-        setContentView(R.layout.main_activity);
     }
 
     /**
      * Create a list of cards
      */
-    public void createCards()
+    public void createFirstLevelCards()
     {
         cards = new ArrayList<Card>();
 
-        Card card = new Card(this);
-        card.setText("Welcom to CHARJ");
-        card.setFootnote("swipe to see next cards");
-        card.setImageLayout(Card.ImageLayout.FULL);
-        cards.add(card);
+        Card mainCard = new Card(this);
+        mainCard.setText("Welcom to CHARJ");
+        mainCard.setFootnote("swipe to see next cards");
+        mainCard.setImageLayout(Card.ImageLayout.FULL);
+        cards.add(mainCard);
 
-        card = new Card(this);
-        card.setText("Do you like this?");
-        card.setFootnote("swipe again!");
-        card.setImageLayout(Card.ImageLayout.FULL);
-        cards.add(card);
+        Card listCard = new Card(this);
+        listCard = new Card(this);
+        listCard.setText("Do you like this?");
+        listCard.setFootnote("swipe again!");
+        listCard.setImageLayout(Card.ImageLayout.FULL);
+        cards.add(listCard);
 
-        card = new Card(this);
-        card.setText("Last Card?");
-        card.setFootnote("do not swipt again");
-        card.setImageLayout(Card.ImageLayout.FULL);
-        cards.add(card);
+        Card nextIncomeCard = new Card(this);
+        nextIncomeCard .setText("Last Card?");
+        nextIncomeCard .setFootnote("do not swipt again");
+        nextIncomeCard .setImageLayout(Card.ImageLayout.FULL);
+        cards.add(nextIncomeCard );
     }
 
     /**
@@ -77,6 +76,7 @@ public class GlassCamp extends Activity {
      */
     private void tappedCard()
     {
+        Toast.makeText(this, "tapped", Toast.LENGTH_SHORT).show();
     }
 
 
