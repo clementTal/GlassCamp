@@ -2,7 +2,6 @@ package com.example.glasscamp.app;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
@@ -20,10 +19,12 @@ import java.util.ArrayList;
 
 
 public class GlassCamp extends Activity {
+    private static final int NUMBER_DEALS_DISPLAY_BY_CARD = 5;
 
     private static int PICTURE_RESULT = 0;
     private ArrayList<Card> cards;
     private CardScrollView cardScrollView;
+    private Balance balance;
     Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
     @Override
@@ -71,16 +72,14 @@ public class GlassCamp extends Activity {
     public void createFirstLevelCards()
     {
         cards = new ArrayList<Card>();
-
-        // Balance has both real (from account) and estimated (calculated by the app)
-        Balance balance = new Balance();
-        balance.setEstimatedBalance(50);
-        balance.setRealBalance(90);
+        balance = initAccount();
 
         //Main card.
         Card card = new Card(this);
         card.setText(balance.getEstimatedBalance() + "€");
         card.setFootnote("Real balance : " + balance.getRealBalance() + "€");
+        card.setImageLayout(Card.ImageLayout.FULL);
+        card.addImage(R.drawable.cat);
         cards.add(card);
 
         // Income card
@@ -100,6 +99,22 @@ public class GlassCamp extends Activity {
     }
 
     /**
+     * Create an account and his previous deals
+     */
+    public Balance initAccount(){
+        Balance balance = new Balance(1500,1500);
+        ArrayList deals = balance.getDeals();
+        Deal deal1 = new Deal(102.25,"Auchan Rennes");
+        deals.add(deal1);
+        Deal deal2 = new Deal(63.88,"Leclerc Brest");
+        deals.add(deal2);
+        Deal deal3 = new Deal(302.25,"Opti' soin");
+        deals.add(deal3);
+        Deal deal4 = new Deal(7.85,"Mac do");
+        deals.add(deal4);
+        return balance;
+    }
+    /**
      * Action to do when you have a card tapped.
      * Created on the main activity to have the context
      */
@@ -113,6 +128,7 @@ public class GlassCamp extends Activity {
      */
     private void openCamera()
     {
+        int PICTURE_RESULT = 0;
         this.startActivityForResult(camera, PICTURE_RESULT);
     }
 
@@ -124,11 +140,25 @@ public class GlassCamp extends Activity {
     }
 
     /**
+     * Open the list and display it
      * Start List activity
      */
-    private void openList()
-    {
-        startActivity(new Intent(this, ListActivity.class));
+    private void openList(){
+        ArrayList deals = balance.getDeals();
+        cards = new ArrayList<Card>()
+        int idDeal = 0;
+        for(Deal deal : deals) {
+            if(idDeal % (NUMBER_DEALS_DISPLAY_BY_CARD - 1) == 0) {
+                if(i == (NUMBER_DEALS_DISPLAY_BY_CARD - 1))
+                    cards.add(card)
+                Card card = new card(this);
+                i =  0;
+            }
+            if(idDeal < NUMBER_DEALS_DISPLAY_BY_CARD){
+                card.setText(card.getText()+", "deal.getAmount());
+            }
+            idDeal++;
+        }
     }
 
 
