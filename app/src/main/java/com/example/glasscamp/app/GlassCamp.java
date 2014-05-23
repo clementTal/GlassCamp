@@ -1,9 +1,13 @@
 package com.example.glasscamp.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Toast;
 import com.example.glasscamp.app.adapters.MyCardScrollAdapter;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.widget.CardScrollView;
@@ -24,10 +28,26 @@ public class GlassCamp extends Activity {
 
         cardScrollView = new CardScrollView(this);
         MyCardScrollAdapter adapter = new MyCardScrollAdapter(cards);
+        cardScrollView.setAdapter(adapter);
+        cardScrollView.activate();
+        setContentView(cardScrollView);
+
+        //On card click
+        cardScrollView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                tappedCard();
+            }
+        });
 
         setContentView(R.layout.main_activity);
     }
 
+    /**
+     * Create a list of cards
+     */
     public void createCards()
     {
         cards = new ArrayList<Card>();
@@ -42,6 +62,14 @@ public class GlassCamp extends Activity {
         card.setFootnote("swipe again!");
         card.setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
+    }
+
+    /**
+     * Action to do when you have a card tapped.
+     * Created on the main activity to have the context
+     */
+    private void tappedCard()
+    {
     }
 
 
