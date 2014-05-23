@@ -6,11 +6,14 @@
 
     <string name="app_name">Budgety</string>
     <string name="action_settings">Settings</string>
-    <string name="main_footnote">Tap to scan</string>
-    <string name="balance">Solde:</string>
     <string name="real_balance">Solde réel:</string>
-
+    <string name="main_footnote">Taper pour capturer</string>
+    <string name="balance">Solde :</string>
+    <string name="confirm_photo_tap">Taper pour confirmer</string>
     <string name="default_text">No data</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="confirm_photo">Valider</string>
+    <string name="delete">Supprimer</string>
+    <string name="delete_info">Taper pour supprimer</string>
+
 
 </resources>
