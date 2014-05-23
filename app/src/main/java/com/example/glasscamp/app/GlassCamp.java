@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.example.glasscamp.app.adapters.MyCardScrollAdapter;
 import com.google.android.glass.app.Card;
+import com.google.android.glass.widget.CardScrollView;
 
 import java.util.ArrayList;
 
@@ -12,12 +14,16 @@ import java.util.ArrayList;
 public class GlassCamp extends Activity {
 
     private ArrayList<Card> cards;
+    private CardScrollView cardScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         createCards();
+
+        cardScrollView = new CardScrollView(this);
+        MyCardScrollAdapter adapter = new MyCardScrollAdapter(cards);
 
         setContentView(R.layout.main_activity);
     }
