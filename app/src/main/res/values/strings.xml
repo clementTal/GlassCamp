@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">charj</string>
+    <string name="app_name">Budgety</string>
     <string name="action_settings">Settings</string>
     <string name="main_footnote">Tap to scan</string>
-    <string name="ballance">Solde:</string>
+    <string name="balance">Solde:</string>
 
     <string name="default_text">No data</string>
 

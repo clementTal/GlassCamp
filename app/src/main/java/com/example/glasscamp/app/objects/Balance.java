@@ -1,9 +1,9 @@
 package com.example.glasscamp.app.objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
-public class Balance {
+public class Balance implements Serializable {
 
     private float realBalance;
     private float estimatedBalance;
@@ -12,6 +12,12 @@ public class Balance {
     public Balance() {
         realBalance = 0.f;
         estimatedBalance = 0.f;
+        deals = new ArrayList<Deal>();
+    }
+
+    public Balance(float realBalance, float estimatedBalance) {
+        this.realBalance = realBalance;
+        this.estimatedBalance = estimatedBalance;
         deals = new ArrayList<Deal>();
     }
 
@@ -31,7 +37,7 @@ public class Balance {
         this.estimatedBalance = estimatedBalance;
     }
 
-    public List<Deal> getDeals() {
+    public ArrayList<Deal> getDeals() {
         return deals;
     }
 }

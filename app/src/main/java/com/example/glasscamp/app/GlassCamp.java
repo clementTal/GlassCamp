@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 import com.example.glasscamp.app.adapters.ScrollAdapter;
 import com.example.glasscamp.app.objects.Balance;
+import com.example.glasscamp.app.objects.Deal;
 import com.example.glasscamp.app.views.ListCard;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.widget.CardScrollView;
@@ -103,15 +104,15 @@ public class GlassCamp extends Activity {
      * Create an account and his previous deals
      */
     public Balance initAccount(){
-        Balance balance = new Balance(1500,1500);
-        ArrayList deals = balance.getDeals();
-        Deal deal1 = new Deal(102.25,"Auchan Rennes");
+        Balance balance = new Balance(1500.f, 1500.f);
+        ArrayList<Deal> deals = balance.getDeals();
+        Deal deal1 = new Deal(102.25f, "Auchan Rennes");
         deals.add(deal1);
-        Deal deal2 = new Deal(63.88,"Leclerc Brest");
+        Deal deal2 = new Deal(63.88f, "Leclerc Brest");
         deals.add(deal2);
-        Deal deal3 = new Deal(302.25,"Opti' soin");
+        Deal deal3 = new Deal(302.25f, "Opti' soin");
         deals.add(deal3);
-        Deal deal4 = new Deal(7.85,"Mac do");
+        Deal deal4 = new Deal(7.85f, "Mac do");
         deals.add(deal4);
         return balance;
     }

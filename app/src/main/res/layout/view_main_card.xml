@@ -18,6 +18,7 @@
 
         <!-- Balance text big -->
         <TextView
+            android:text="@string/balance"
             android:id="@+id/balance"
             android:layout_width="0dip"
             android:layout_height="wrap_content"

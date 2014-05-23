@@ -46,7 +46,7 @@ public class ListCard extends FrameLayout
         idList.add(R.id.row6_date);idList.add(R.id.row6_value);idList.add(R.id.row6_seller);
 
         // TODO set content on card
-        ((TextView)view.findViewById(R.id.title_left_col_txt)).setText(context.getString(R.string.ballance));
+        ((TextView)view.findViewById(R.id.title_left_col_txt)).setText(context.getString(R.string.balance));
         ((TextView)view.findViewById(R.id.data_left_col_txt)).setText(BalanceValue);
 
         for (int i = 0; i < elements.size(); i++)
