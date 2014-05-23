@@ -69,46 +69,33 @@ public class GlassCamp extends Activity {
     {
         cards = new ArrayList<Card>();
 
+        // Balance has both real (from account) and estimated (calculated by the app)
+        Balance balance = new Balance();
+        balance.setEstimatedBalance(50);
+        balance.setRealBalance(90);
+
+        //Main card.
         Card card = new Card(this);
-        card.setText("Solde : 30 €");
-        card.setImageLayout(Card.ImageLayout.FULL);
-
-        cards.add(card);
-
-        Balance balance = initAccount();
-
-        card = new Card(this);
         card.setText(balance.getEstimatedBalance() + "€");
         card.setFootnote("Real balance : " + balance.getRealBalance() + "€");
-        card.setImageLayout(Card.ImageLayout.FULL);
-        card.addImage(R.drawable.cat);
         cards.add(card);
 
-        card.setText("Last Card?");
-        card.setFootnote("do not swipt again");
-        card.setImageLayout(Card.ImageLayout.FULL);
+        // Income card
+        card = new Card(this);
         card.addImage(R.drawable.dog);
         cards.add(card);
 
+        // List icon card
+        card = new Card(this);
+        card.addImage(R.drawable.cat);
+        cards.add(card);
 
+        // options icon card
+        card = new Card(this);
+        card.addImage(R.drawable.cat);
+        cards.add(card);
     }
 
-    /**
-     * Create an account and his previous deals
-     */
-    public Balance initAccount(){
-        Balance balance = new Balance(1500,1500);
-        ArrayList deals = balance.getDeals();
-        Deal deal1 = new Deal(102.25,"Auchan Rennes");
-        deals.add(deal1);
-        Deal deal2 = new Deal(63.88,"Leclerc Brest");
-        deals.add(deal2);
-        Deal deal3 = new Deal(302.25,"Opti' soin");
-        deals.add(deal3);
-        Deal deal4 = new Deal(7.85,"Mac do");
-        deals.add(deal4);
-        return balance;
-    }
     /**
      * Action to do when you have a card tapped.
      * Created on the main activity to have the context
@@ -125,6 +112,10 @@ public class GlassCamp extends Activity {
     {
         int PICTURE_RESULT = 0;
         this.startActivityForResult(camera, PICTURE_RESULT);
+        if (PICTURE_RESULT == Activity.RESULT_OK)
+        {
+            
+        }
     }
 
     /**
