@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.example.glasscamp.app.adapters.CustomScrollAdapter;
+import com.example.glasscamp.app.objects.Balance;
 import com.example.glasscamp.app.views.CustomCard;
 import com.example.glasscamp.app.views.ListCard;
 import com.google.android.glass.widget.CardScrollView;
@@ -25,7 +26,7 @@ public class ListActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        balance = getIntent().getSerializableExtra("Balance");
+        //balance = getIntent().getSerializableExtra("Balance");
 
         Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
 
@@ -48,6 +49,7 @@ public class ListActivity extends Activity
         //cards.add(new CustomCard(this, R.drawable.cantine, R.string.sponsor_cantine));
         //cards.add(new CustomCard(this, R.drawable.arkea, R.string.sponsor_arkea));
 
+        /**
         ArrayList deals = balance.getDeals();
         cards = new ArrayList<Card>()
         int idDeal = 0;
@@ -63,6 +65,7 @@ public class ListActivity extends Activity
             }
             idDeal++;
         }
+         **/
     }
 
     @Override

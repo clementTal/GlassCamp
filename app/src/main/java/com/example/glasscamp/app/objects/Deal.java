@@ -1,6 +1,8 @@
 package com.example.glasscamp.app.objects;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Deal {
 
@@ -16,6 +18,13 @@ public class Deal {
 
     public Date getDate() {
         return date;
+    }
+
+    public String getDateString()
+    {
+        String format = "yyyy-MM-dd HH:mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.FRANCE);
+        return sdf.format(date);
     }
 
     public String getShop() {

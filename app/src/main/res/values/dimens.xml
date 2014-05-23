@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">10px</dimen>
 
     <!-- The recommended margin for the top, left, and right edges of a card. -->
     <dimen name="glass_card_margin">40px</dimen>
@@ -19,5 +19,9 @@
 
     <!-- The width of the left column in the two-column layout. -->
     <dimen name="glass_card_left_column_width">240px</dimen>
+
+    <dimen name="list_padding">5px</dimen>
+    <dimen name="list_title_size">55px</dimen>
+    <dimen name="list_elements_size">40px</dimen>
 
 </resources>
