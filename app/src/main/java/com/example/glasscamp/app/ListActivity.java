@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import com.example.glasscamp.app.adapters.CustomScrollAdapter;
 import com.example.glasscamp.app.views.CustomCard;
 import com.example.glasscamp.app.views.ListCard;
@@ -24,6 +25,8 @@ public class ListActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
 
         createCards();
 

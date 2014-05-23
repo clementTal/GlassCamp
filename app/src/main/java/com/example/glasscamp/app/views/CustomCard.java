@@ -31,11 +31,11 @@ public class CustomCard extends FrameLayout
      * @param text
      */
     private void initView(final Context context, int img, int text){
-        View view = LayoutInflater.from(context).inflate(R.layout.view_custom_card, null);
+        //View view = LayoutInflater.from(context).inflate(R.layout.view_custom_card, null);
 
         // TODO set content on card
         //((ImageView)view.findViewById(R.id.image)).setImageResource(img);
         //((TextView)view.findViewById(R.id.name)).setText(context.getString(text));
-        this.addView(view);
+        //this.addView(view);
     }
 }

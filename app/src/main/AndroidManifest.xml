@@ -22,6 +22,9 @@
                     android:resource="@xml/voice_trigger_start">
             </meta-data>
         </activity>
+        <activity android:name=".ListActivity">
+            
+        </activity>
     </application>
 
 </manifest>

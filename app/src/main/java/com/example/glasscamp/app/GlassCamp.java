@@ -2,6 +2,7 @@ package com.example.glasscamp.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 public class GlassCamp extends Activity {
 
+    private static int PICTURE_RESULT = 0;
     private ArrayList<Card> cards;
     private CardScrollView cardScrollView;
     Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -111,10 +113,12 @@ public class GlassCamp extends Activity {
      */
     private void openCamera()
     {
-        int PICTURE_RESULT = 0;
         this.startActivityForResult(camera, PICTURE_RESULT);
-        if (PICTURE_RESULT == Activity.RESULT_OK)
-        {
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PICTURE_RESULT && resultCode == RESULT_OK) {
             startActivity(new Intent(this, ListActivity.class));
         }
     }
