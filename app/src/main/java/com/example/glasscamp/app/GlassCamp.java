@@ -63,17 +63,23 @@ public class GlassCamp extends Activity {
         cards = new ArrayList<Card>();
 
         Card card = new Card(this);
-        card.setText("Welcom to budgetE");
+        card.setText("Welcome to budgetE");
         card.setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
 
+        // Balance has both real (from account) and estimated (calculated by the app)
+        Balance balance = new Balance();
+        balance.setEstimatedBalance(50);
+        balance.setRealBalance(90);
+
         card = new Card(this);
-        card.setText("Do you like this?");
+        card.setText(balance.getEstimatedBalance() + "€");
+        card.setFootnote("Real balance : " + balance.getRealBalance() + "€");
         card.setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
 
         card .setText("Last Card?");
-        card .setFootnote("do not swipt again");
+        card .setFootnote("do not swipe again");
         card .setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
     }
