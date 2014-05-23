@@ -17,6 +17,7 @@ public class Balance {
     public Balance(float realBalance, float estimatedBalance){
         this.realBalance = setRealBalance(realBalance);
         this.estimatedBalance = setEstimatedBalance(estimatedBalance);
+        deals = new ArrayList<Deal>();
     }
 
     public float getRealBalance() {
