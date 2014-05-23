@@ -46,6 +46,8 @@ public class GlassCamp extends Activity {
                     {
                         case 0:
                             openCamera();
+                        case 1:
+                            openList();
                         default:
                             tappedCard(cardScrollView.getSelectedItemPosition());
                     }
@@ -63,8 +65,9 @@ public class GlassCamp extends Activity {
         cards = new ArrayList<Card>();
 
         Card card = new Card(this);
-        card.setText("Welcome to budgetE");
+        card.setText("Solde : 30 €");
         card.setImageLayout(Card.ImageLayout.FULL);
+
         cards.add(card);
 
         // Balance has both real (from account) and estimated (calculated by the app)
@@ -76,11 +79,13 @@ public class GlassCamp extends Activity {
         card.setText(balance.getEstimatedBalance() + "€");
         card.setFootnote("Real balance : " + balance.getRealBalance() + "€");
         card.setImageLayout(Card.ImageLayout.FULL);
+        card.addImage(R.drawable.cat)
         cards.add(card);
 
-        card .setText("Last Card?");
-        card .setFootnote("do not swipe again");
-        card .setImageLayout(Card.ImageLayout.FULL);
+        card.setText("Last Card?");
+        card.setFootnote("do not swipt again");
+        card.setImageLayout(Card.ImageLayout.FULL);
+        card.addImage(R.drawable.dog)
         cards.add(card);
     }
 
@@ -100,6 +105,15 @@ public class GlassCamp extends Activity {
     {
         int PICTURE_RESULT = 0;
         this.startActivityForResult(camera, PICTURE_RESULT);
+    }
+
+    /**
+     *
+     * @param menu
+     * @return
+     */
+    private void openList(){
+
     }
 
 
