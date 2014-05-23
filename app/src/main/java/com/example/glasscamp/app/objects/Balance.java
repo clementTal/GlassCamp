@@ -1,6 +1,5 @@
 package com.example.glasscamp.app.objects;
 
-import java.io.Serializable;
 import android.os.Parcel;
 import android.os.Parcelable;
 

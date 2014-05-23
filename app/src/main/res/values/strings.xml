@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="title_activity_detail_deal">DetailDealActivity</string>
+    <string name="title_activity_list">ListActivity</string>
+
 
     <string name="app_name">Budgety</string>
     <string name="action_settings">Settings</string>
     <string name="main_footnote">Tap to scan</string>
-<<<<<<< HEAD
     <string name="balance">Solde:</string>
-
-=======
-    <string name="ballance">Solde:</string>
->>>>>>> create deal detail activity and card, set data to deal list cards and deal detail cards
     <string name="default_text">No data</string>
-    <string name="title_activity_detail_deal">DetailDealActivity</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

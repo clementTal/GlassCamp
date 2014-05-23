@@ -105,13 +105,13 @@ public class GlassCamp extends Activity {
         Balance balance = new Balance(1500.f,1500.f);
         ArrayList<Deal> deals = balance.getDeals();
         Deal deal1 = new Deal(102.25f,"Auchan Rennes");
-        deals.add(deal1);
+        balance.addDeal(deal1);
         Deal deal2 = new Deal(63.88f,"Leclerc Brest");
-        deals.add(deal2);
+        balance.addDeal(deal2);
         Deal deal3 = new Deal(302.25f,"Opti' soin");
-        deals.add(deal3);
+        balance.addDeal(deal3);
         Deal deal4 = new Deal(7.85f,"Mac do");
-        deals.add(deal4);
+        balance.addDeal(deal4);
         return balance;
     }
 
@@ -120,6 +120,8 @@ public class GlassCamp extends Activity {
      */
     private void openCamera()
     {
+        Deal deal = new Deal(12.75f,"Carrefour Lyon");
+        balance.addDeal(deal);
         int PICTURE_RESULT = 0;
         this.startActivityForResult(camera, PICTURE_RESULT);
     }
