@@ -1,6 +1,7 @@
 package com.example.glasscamp.app;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -144,21 +145,9 @@ public class GlassCamp extends Activity {
      * Start List activity
      */
     private void openList(){
-        ArrayList deals = balance.getDeals();
-        cards = new ArrayList<Card>()
-        int idDeal = 0;
-        for(Deal deal : deals) {
-            if(idDeal % (NUMBER_DEALS_DISPLAY_BY_CARD - 1) == 0) {
-                if(i == (NUMBER_DEALS_DISPLAY_BY_CARD - 1))
-                    cards.add(card)
-                Card card = new card(this);
-                i =  0;
-            }
-            if(idDeal < NUMBER_DEALS_DISPLAY_BY_CARD){
-                card.setText(card.getText()+", "deal.getAmount());
-            }
-            idDeal++;
-        }
+        Intent i = new Intent(this, ListActivity.class);
+        i.putExtra("Balance", balance);
+        startActivity(i);
     }
 
 

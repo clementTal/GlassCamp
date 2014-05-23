@@ -20,11 +20,12 @@ public class ListActivity extends Activity
 
     private ArrayList<ListCard> cards;
     private CardScrollView cardScrollView;
-
+    private Balance balance;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        balance = getIntent().getSerializableExtra("Balance");
 
         Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
 
@@ -46,6 +47,22 @@ public class ListActivity extends Activity
         // TODO Add cards
         //cards.add(new CustomCard(this, R.drawable.cantine, R.string.sponsor_cantine));
         //cards.add(new CustomCard(this, R.drawable.arkea, R.string.sponsor_arkea));
+
+        ArrayList deals = balance.getDeals();
+        cards = new ArrayList<Card>()
+        int idDeal = 0;
+        for(Deal deal : deals) {
+            if(idDeal % (NUMBER_DEALS_DISPLAY_BY_CARD - 1) == 0) {
+                if(i == (NUMBER_DEALS_DISPLAY_BY_CARD - 1))
+                    cards.add(card)
+                Card card = new card(this);
+                i =  0;
+            }
+            if(idDeal < NUMBER_DEALS_DISPLAY_BY_CARD){
+                card.setText(card.getText()+", "deal.getAmount());
+            }
+            idDeal++;
+        }
     }
 
     @Override
