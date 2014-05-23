@@ -12,12 +12,12 @@ import java.util.ArrayList;
  * @author SCA
  * @date 20/05/2014.
  */
-public class MyCardScrollAdapter extends CardScrollAdapter
+public class ScrollAdapter extends com.google.android.glass.widget.CardScrollAdapter
 {
 
     private ArrayList<Card> cards = null;
 
-    public MyCardScrollAdapter(final ArrayList<Card> cards)
+    public ScrollAdapter(final ArrayList<Card> cards)
     {
         this.cards = cards;
     }

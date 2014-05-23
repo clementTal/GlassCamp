@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.example.glasscamp.app.adapters.CustomScrollAdapter;
-import com.example.glasscamp.app.adapters.MyCardScrollAdapter;
 import com.example.glasscamp.app.views.CustomCard;
+import com.example.glasscamp.app.views.ListCard;
 import com.google.android.glass.widget.CardScrollView;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ListActivity extends Activity
 {
 
-    private ArrayList<CustomCard> cards;
+    private ArrayList<ListCard> cards;
     private CardScrollView cardScrollView;
 
     @Override
@@ -38,7 +38,7 @@ public class ListActivity extends Activity
      * Create cards to display.
      */
     private void createCards() {
-        cards = new ArrayList<CustomCard>();
+        cards = new ArrayList<ListCard>();
 
         // TODO Add cards
         //cards.add(new CustomCard(this, R.drawable.cantine, R.string.sponsor_cantine));

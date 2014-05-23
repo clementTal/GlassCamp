@@ -2,6 +2,7 @@ package com.example.glasscamp.app.adapters;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.example.glasscamp.app.views.CustomCard;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.widget.CardScrollAdapter;
@@ -13,9 +14,9 @@ import java.util.ArrayList;
  */
 public class CustomScrollAdapter extends CardScrollAdapter {
 
-    private ArrayList<CustomCard> mCards = null;
+    private ArrayList<? extends FrameLayout> mCards = null;
 
-    public CustomScrollAdapter(final ArrayList<CustomCard> cards){
+    public CustomScrollAdapter(final ArrayList<? extends FrameLayout> cards){
         this.mCards = cards;
     }
 

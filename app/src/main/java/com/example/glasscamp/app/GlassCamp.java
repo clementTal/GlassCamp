@@ -9,8 +9,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
-import com.example.glasscamp.app.adapters.MyCardScrollAdapter;
+import com.example.glasscamp.app.adapters.ScrollAdapter;
 import com.example.glasscamp.app.objects.Balance;
+import com.example.glasscamp.app.views.ListCard;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.widget.CardScrollView;
 
@@ -30,7 +31,7 @@ public class GlassCamp extends Activity {
         createFirstLevelCards();
 
         cardScrollView = new CardScrollView(this);
-        MyCardScrollAdapter adapter = new MyCardScrollAdapter(cards);
+        ScrollAdapter adapter = new ScrollAdapter(cards);
         cardScrollView.setAdapter(adapter);
         cardScrollView.activate();
         setContentView(cardScrollView);
@@ -114,15 +115,16 @@ public class GlassCamp extends Activity {
         this.startActivityForResult(camera, PICTURE_RESULT);
         if (PICTURE_RESULT == Activity.RESULT_OK)
         {
-            
+            startActivity(new Intent(this, ListActivity.class));
         }
     }
 
     /**
-     *
+     * Start List activity
      */
-    private void openList(){
-
+    private void openList()
+    {
+        startActivity(new Intent(this, ListActivity.class));
     }
 
 
