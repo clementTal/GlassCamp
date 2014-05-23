@@ -46,8 +46,12 @@ public class GlassCamp extends Activity {
                     {
                         case 0:
                             openCamera();
+                            break;
                         case 1:
+                            break;
+                        case 2:
                             openList();
+                            break;
                         default:
                             tappedCard(cardScrollView.getSelectedItemPosition());
                     }
@@ -79,13 +83,13 @@ public class GlassCamp extends Activity {
         card.setText(balance.getEstimatedBalance() + "€");
         card.setFootnote("Real balance : " + balance.getRealBalance() + "€");
         card.setImageLayout(Card.ImageLayout.FULL);
-        card.addImage(R.drawable.cat)
+        card.addImage(R.drawable.cat);
         cards.add(card);
 
         card.setText("Last Card?");
         card.setFootnote("do not swipt again");
         card.setImageLayout(Card.ImageLayout.FULL);
-        card.addImage(R.drawable.dog)
+        card.addImage(R.drawable.dog);
         cards.add(card);
     }
 
@@ -109,8 +113,6 @@ public class GlassCamp extends Activity {
 
     /**
      *
-     * @param menu
-     * @return
      */
     private void openList(){
 
