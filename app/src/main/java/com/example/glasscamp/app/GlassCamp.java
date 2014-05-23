@@ -4,14 +4,32 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.google.android.glass.app.Card;
+
+import java.util.ArrayList;
 
 
 public class GlassCamp extends Activity {
 
+    private ArrayList<Card> cards;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        createCards();
+
         setContentView(R.layout.main_activity);
+    }
+
+    public void createCards()
+    {
+        cards = new ArrayList<Card>();
+
+        Card card = new Card(this);
+        card.setText("Welcom to CHARJ");
+        card.setFootnote("swipe to see next cards");
+        cards.add(card);
     }
 
 
