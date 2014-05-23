@@ -13,8 +13,8 @@ public class Balance implements Parcelable
     private ArrayList<Deal> deals;
 
     public Balance(float realBalance, float estimatedBalance) {
-        realBalance = realBalance;
-        estimatedBalance = estimatedBalance;
+        this.realBalance = realBalance;
+        this.estimatedBalance = estimatedBalance;
         deals = new ArrayList<Deal>();
     }
 
