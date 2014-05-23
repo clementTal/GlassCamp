@@ -55,11 +55,18 @@ public class GlassCamp extends Activity {
         Card card = new Card(this);
         card.setText("Welcom to CHARJ");
         card.setFootnote("swipe to see next cards");
+        card.setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
 
         card = new Card(this);
         card.setText("Do you like this?");
         card.setFootnote("swipe again!");
+        card.setImageLayout(Card.ImageLayout.FULL);
+        cards.add(card);
+
+        card = new Card(this);
+        card.setText("Last Card?");
+        card.setFootnote("do not swipt again");
         card.setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
     }
