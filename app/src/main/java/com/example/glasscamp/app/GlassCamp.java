@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 import com.example.glasscamp.app.adapters.MyCardScrollAdapter;
+import com.example.glasscamp.app.objects.Balance;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.widget.CardScrollView;
 

@@ -1,4 +1,4 @@
-package com.example.glasscamp.app;
+package com.example.glasscamp.app.objects;
 
 import java.util.ArrayList;
 import java.util.List;
