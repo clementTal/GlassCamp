@@ -3,6 +3,7 @@ package com.example.glasscamp.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,7 @@ public class GlassCamp extends Activity {
 
     private ArrayList<Card> cards;
     private CardScrollView cardScrollView;
+    Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,17 @@ public class GlassCamp extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                tappedCard();
+                if (cardScrollView.getSelectedItemPosition() < cards.size() - 1)
+                {
+                    switch (cardScrollView.getSelectedItemPosition())
+                    {
+                        case 0:
+                            openCamera();
+                        default:
+                            tappedCard(cardScrollView.getSelectedItemPosition());
+                    }
+
+                }
             }
         });
     }
@@ -50,33 +62,38 @@ public class GlassCamp extends Activity {
     {
         cards = new ArrayList<Card>();
 
-        Card mainCard = new Card(this);
-        mainCard.setText("Welcom to CHARJ");
-        mainCard.setFootnote("swipe to see next cards");
-        mainCard.setImageLayout(Card.ImageLayout.FULL);
-        cards.add(mainCard);
+        Card card = new Card(this);
+        card.setText("Welcom to budgetE");
+        card.setImageLayout(Card.ImageLayout.FULL);
+        cards.add(card);
 
-        Card listCard = new Card(this);
-        listCard = new Card(this);
-        listCard.setText("Do you like this?");
-        listCard.setFootnote("swipe again!");
-        listCard.setImageLayout(Card.ImageLayout.FULL);
-        cards.add(listCard);
+        card = new Card(this);
+        card.setText("Do you like this?");
+        card.setImageLayout(Card.ImageLayout.FULL);
+        cards.add(card);
 
-        Card nextIncomeCard = new Card(this);
-        nextIncomeCard .setText("Last Card?");
-        nextIncomeCard .setFootnote("do not swipt again");
-        nextIncomeCard .setImageLayout(Card.ImageLayout.FULL);
-        cards.add(nextIncomeCard );
+        card .setText("Last Card?");
+        card .setFootnote("do not swipt again");
+        card .setImageLayout(Card.ImageLayout.FULL);
+        cards.add(card);
     }
 
     /**
      * Action to do when you have a card tapped.
      * Created on the main activity to have the context
      */
-    private void tappedCard()
+    private void tappedCard(int i)
     {
-        Toast.makeText(this, "tapped", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "card tapped " + i, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Open the camera adapter
+     */
+    private void openCamera()
+    {
+        int PICTURE_RESULT = 0;
+        this.startActivityForResult(camera, PICTURE_RESULT);
     }
 
 
