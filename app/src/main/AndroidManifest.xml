@@ -17,13 +17,17 @@
             <intent-filter>
                 <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
             </intent-filter>
+
             <meta-data
-                    android:name="com.google.android.glass.VoiceTrigger"
-                    android:resource="@xml/voice_trigger_start">
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/voice_trigger_start" >
             </meta-data>
         </activity>
-        <activity android:name=".ListActivity">
-            
+        <activity android:name="com.example.glasscamp.app.ListActivity" >
+        </activity>
+        <activity
+            android:name="com.example.glasscamp.app.DetailDealActivity"
+            android:label="@string/title_activity_detail_deal" >
         </activity>
     </application>
 

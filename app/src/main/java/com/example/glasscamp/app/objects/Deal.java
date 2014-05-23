@@ -1,10 +1,14 @@
 package com.example.glasscamp.app.objects;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Deal {
+public class Deal implements Parcelable
+{
 
     private Date date;
     private String shop;
@@ -41,5 +45,15 @@ public class Deal {
 
     public void setAmount(float amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

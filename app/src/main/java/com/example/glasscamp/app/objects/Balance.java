@@ -1,24 +1,26 @@
 package com.example.glasscamp.app.objects;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Balance implements Serializable {
+import java.util.ArrayList;
+public class Balance implements Parcelable
+{
 
     private float realBalance;
     private float estimatedBalance;
     private ArrayList<Deal> deals;
 
-    public Balance() {
-        realBalance = 0.f;
-        estimatedBalance = 0.f;
+    public Balance(float realBalance, float estimatedBalance) {
+        realBalance = realBalance;
+        estimatedBalance = estimatedBalance;
         deals = new ArrayList<Deal>();
     }
 
-    public Balance(float realBalance, float estimatedBalance) {
-        this.realBalance = realBalance;
-        this.estimatedBalance = estimatedBalance;
-        deals = new ArrayList<Deal>();
+    public Balance getBallance()
+    {
+        return this;
     }
 
     public float getRealBalance() {
@@ -37,7 +39,27 @@ public class Balance implements Serializable {
         this.estimatedBalance = estimatedBalance;
     }
 
+    public void addDeal(Deal dealToAdd)
+    {
+        estimatedBalance = 1000.f;
+        deals.add(dealToAdd);
+        for (Deal deal : deals)
+        {
+            estimatedBalance -= deal.getAmount();
+        }
+    }
+
     public ArrayList<Deal> getDeals() {
         return deals;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

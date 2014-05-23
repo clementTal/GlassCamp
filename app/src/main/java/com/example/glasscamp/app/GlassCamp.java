@@ -59,8 +59,6 @@ public class GlassCamp extends Activity {
                         case 2:
                             openList();
                             break;
-                        default:
-                            tappedCard(cardScrollView.getSelectedItemPosition());
                     }
 
                 }
@@ -104,25 +102,17 @@ public class GlassCamp extends Activity {
      * Create an account and his previous deals
      */
     public Balance initAccount(){
-        Balance balance = new Balance(1500.f, 1500.f);
+        Balance balance = new Balance(1500.f,1500.f);
         ArrayList<Deal> deals = balance.getDeals();
-        Deal deal1 = new Deal(102.25f, "Auchan Rennes");
+        Deal deal1 = new Deal(102.25f,"Auchan Rennes");
         deals.add(deal1);
-        Deal deal2 = new Deal(63.88f, "Leclerc Brest");
+        Deal deal2 = new Deal(63.88f,"Leclerc Brest");
         deals.add(deal2);
-        Deal deal3 = new Deal(302.25f, "Opti' soin");
+        Deal deal3 = new Deal(302.25f,"Opti' soin");
         deals.add(deal3);
-        Deal deal4 = new Deal(7.85f, "Mac do");
+        Deal deal4 = new Deal(7.85f,"Mac do");
         deals.add(deal4);
         return balance;
-    }
-    /**
-     * Action to do when you have a card tapped.
-     * Created on the main activity to have the context
-     */
-    private void tappedCard(int i)
-    {
-        Toast.makeText(this, "card tapped " + i, Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -134,10 +124,18 @@ public class GlassCamp extends Activity {
         this.startActivityForResult(camera, PICTURE_RESULT);
     }
 
+    /**
+     * On camera return
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PICTURE_RESULT && resultCode == RESULT_OK) {
-            startActivity(new Intent(this, ListActivity.class));
+            Intent i = new Intent(this, ListActivity.class);
+            i.putExtra("Balance", balance);
+            startActivity(i);
         }
     }
 

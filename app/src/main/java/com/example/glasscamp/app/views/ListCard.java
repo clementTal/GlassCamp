@@ -24,6 +24,12 @@ public class ListCard extends FrameLayout
         super(context);
     }
 
+    /**
+     * list card creator
+     * @param context
+     * @param BalanceValue the ballance value
+     * @param elements the elements (Deal) to display
+     */
     public ListCard(final Context context, String BalanceValue, List<Deal> elements){
         super(context);
         initView(context, BalanceValue, elements);

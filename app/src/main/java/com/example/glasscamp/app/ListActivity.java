@@ -1,17 +1,23 @@
 package com.example.glasscamp.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 import com.example.glasscamp.app.adapters.CustomScrollAdapter;
 import com.example.glasscamp.app.objects.Balance;
+import com.example.glasscamp.app.objects.Deal;
 import com.example.glasscamp.app.views.CustomCard;
 import com.example.glasscamp.app.views.ListCard;
+import com.google.android.glass.app.Card;
 import com.google.android.glass.widget.CardScrollView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by clem on 23/05/14.
@@ -19,17 +25,19 @@ import java.util.ArrayList;
 public class ListActivity extends Activity
 {
 
+    private static int NUMBER_DEALS_DISPLAY_BY_CARD = 6;
+
     private ArrayList<ListCard> cards;
     private CardScrollView cardScrollView;
     private Balance balance;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         //balance = getIntent().getSerializableExtra("Balance");
 
-        Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
-
+        balance = getIntent().getExtras().getParcelable("Balance");
         createCards();
 
         cardScrollView = new CardScrollView(this);
@@ -37,6 +45,19 @@ public class ListActivity extends Activity
         cardScrollView.setAdapter(adapter);
         cardScrollView.activate();
         setContentView(cardScrollView);
+
+        cardScrollView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                if (cardScrollView.getSelectedItemPosition() < cards.size() - 1)
+                {
+                    Deal deal = balance.getDeals().get(cardScrollView.getSelectedItemPosition());
+                    openDetailCard(deal);
+                }
+            }
+        });
     }
 
     /**
@@ -45,27 +66,24 @@ public class ListActivity extends Activity
     private void createCards() {
         cards = new ArrayList<ListCard>();
 
-        // TODO Add cards
-        //cards.add(new CustomCard(this, R.drawable.cantine, R.string.sponsor_cantine));
-        //cards.add(new CustomCard(this, R.drawable.arkea, R.string.sponsor_arkea));
-
-        /**
-        ArrayList deals = balance.getDeals();
-        cards = new ArrayList<Card>()
+        ArrayList<Deal> deals = balance.getDeals();
         int idDeal = 0;
-        for(Deal deal : deals) {
-            if(idDeal % (NUMBER_DEALS_DISPLAY_BY_CARD - 1) == 0) {
-                if(i == (NUMBER_DEALS_DISPLAY_BY_CARD - 1))
-                    cards.add(card)
-                Card card = new card(this);
-                i =  0;
+        while (idDeal < deals.size())
+        {
+            List<Deal> dealList = new ArrayList<Deal>();
+            for (int i = 0; i < NUMBER_DEALS_DISPLAY_BY_CARD; i++) {
+                Deal deal = deals.get(i);
+                dealList.add(deal);
             }
-            if(idDeal < NUMBER_DEALS_DISPLAY_BY_CARD){
-                card.setText(card.getText()+", "deal.getAmount());
-            }
-            idDeal++;
+            cards.add(new ListCard(this, balance.getEstimatedBalance() + "", dealList));
         }
-         **/
+    }
+
+    private void openDetailCard(Deal deal)
+    {
+        Intent i = new Intent(this, DetailDealActivity.class);
+        i.putExtra("Deal", deal);
+        startActivity(i);
     }
 
     @Override
