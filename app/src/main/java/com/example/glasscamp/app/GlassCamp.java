@@ -92,8 +92,12 @@ public class GlassCamp extends Activity {
         card.setImageLayout(Card.ImageLayout.FULL);
         card.addImage(R.drawable.dog);
         cards.add(card);
+
     }
 
+    public void init(){
+        new Balance();
+    }
     /**
      * Action to do when you have a card tapped.
      * Created on the main activity to have the context
