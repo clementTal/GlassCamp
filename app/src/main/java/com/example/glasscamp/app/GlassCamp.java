@@ -120,8 +120,6 @@ public class GlassCamp extends Activity {
      */
     private void openCamera()
     {
-        Deal deal = new Deal(12.75f,"Carrefour Lyon");
-        balance.addDeal(deal);
         int PICTURE_RESULT = 0;
         this.startActivityForResult(camera, PICTURE_RESULT);
     }
@@ -135,6 +133,8 @@ public class GlassCamp extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PICTURE_RESULT && resultCode == RESULT_OK) {
+            Deal deal = new Deal(12.75f,"Carrefour Lyon");
+            balance.addDeal(deal);
             Intent i = new Intent(this, ListActivity.class);
             i.putExtra("Balance", balance);
             startActivity(i);
