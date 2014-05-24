@@ -14,18 +14,18 @@ public class Balance
     private ArrayList<Deal> deals;
 
     public Balance() {
-        this.realBalance = 15000.0;
-        this.estimatedBalance = 15000.0;
+        this.realBalance = 1500.0;
+        this.estimatedBalance = 1500.0;
         Deal deal1 = new Deal(12.25,"Auchan");
-        this.addDeal(deal1);
+        this.addDeal(deal1, -1);
         Deal deal2 = new Deal(63.88,"Leclerc");
-        this.addDeal(deal2);
+        this.addDeal(deal2, -1);
         Deal deal3 = new Deal(32.25,"Opti");
-        this.addDeal(deal3);
+        this.addDeal(deal3, -1);
         Deal deal4 = new Deal(7.85,"Mac do");
-        this.addDeal(deal4);
+        this.addDeal(deal4, -1);
         Deal deal5 = new Deal(12.85,"Pizza");
-        this.addDeal(deal5);
+        this.addDeal(deal5, -1);
     }
 
 
@@ -46,9 +46,16 @@ public class Balance
         this.estimatedBalance = estimatedBalance;
     }
 
-    public void addDeal(Deal dealToAdd)
+    public void addDeal(Deal dealToAdd, int position)
     {
-        this.getDeals().add(dealToAdd);
+        if (position > 0)
+        {
+            this.getDeals().add(position, dealToAdd);
+        }
+        else
+        {
+            this.getDeals().add(dealToAdd);
+        }
         for (Deal deal : deals)
         {
             this.estimatedBalance= this.getEstimatedBalance() - deal.getAmount();
@@ -63,7 +70,7 @@ public class Balance
         shop = shops[shopNumber];
 
         Deal deal = new Deal(20 + (float)(Math.random() * ((100 - 20) + 1)), shop); // min : 20€; max : 100€
-        addDeal(deal);
+        addDeal(deal,0);
     }
 
     public ArrayList<Deal> getDeals() {

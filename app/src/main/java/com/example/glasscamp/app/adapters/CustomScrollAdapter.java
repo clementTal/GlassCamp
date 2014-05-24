@@ -12,28 +12,33 @@ import java.util.ArrayList;
 /**
  * Created by clem on 23/05/14.
  */
-public class CustomScrollAdapter extends CardScrollAdapter {
+public class CustomScrollAdapter extends CardScrollAdapter
+{
 
     private ArrayList<? extends FrameLayout> mCards = null;
 
-    public CustomScrollAdapter(final ArrayList<? extends FrameLayout> cards){
+    public CustomScrollAdapter(final ArrayList<? extends FrameLayout> cards)
+    {
         this.mCards = cards;
     }
 
     @Override
-    public int getPosition(Object item) {
+    public int getPosition(Object item)
+    {
         return mCards.indexOf(item);
     }
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         if(mCards == null)
             return 0;
         return mCards.size();
     }
 
     @Override
-    public Object getItem(int position) {
+    public Object getItem(int position)
+    {
         return mCards.get(position);
     }
 
@@ -41,7 +46,8 @@ public class CustomScrollAdapter extends CardScrollAdapter {
      * Returns the amount of view types.
      */
     @Override
-    public int getViewTypeCount() {
+    public int getViewTypeCount()
+    {
         return Card.getViewTypeCount();
     }
 
@@ -50,13 +56,15 @@ public class CustomScrollAdapter extends CardScrollAdapter {
      * if it can be recycled.
      */
     @Override
-    public int getItemViewType(int position){
+    public int getItemViewType(int position)
+    {
         return 1;
     }
 
     @Override
     public View getView(int position, View convertView,
-                        ViewGroup parent) {
+                        ViewGroup parent)
+    {
         return  mCards.get(position);
     }
 }

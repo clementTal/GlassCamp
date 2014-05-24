@@ -24,10 +24,6 @@
             </meta-data>
         </activity>
         <activity
-                android:name="com.example.glasscamp.app.ListActivity">
-        </activity>
-
-        <activity
             android:name="com.example.glasscamp.app.DetailDealActivity">
         </activity>
     </application>

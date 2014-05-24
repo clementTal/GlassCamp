@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import com.example.glasscamp.app.adapters.CustomScrollAdapter;
 import com.example.glasscamp.app.objects.Deal;
 import com.example.glasscamp.app.views.DetailCard;
-import com.example.glasscamp.app.views.ListCard;
 import com.google.android.glass.widget.CardScrollView;
 
 import java.util.ArrayList;

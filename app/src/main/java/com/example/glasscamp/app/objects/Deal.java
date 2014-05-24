@@ -57,7 +57,7 @@ public class Deal implements Parcelable
     }
 
     public double getAmount() {
-        return Math.round(100);
+        return Math.round(amount);
     }
 
     public void setAmount(double amount) {
