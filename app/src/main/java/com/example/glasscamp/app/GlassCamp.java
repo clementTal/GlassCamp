@@ -1,11 +1,14 @@
 package com.example.glasscamp.app;
 
 import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.RemoteViews;
@@ -15,6 +18,8 @@ import com.example.glasscamp.app.objects.Balance;
 import com.example.glasscamp.app.objects.Deal;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.timeline.LiveCard;
+import com.google.android.glass.touchpad.Gesture;
+import com.google.android.glass.touchpad.GestureDetector;
 import com.google.android.glass.widget.CardScrollView;
 
 import java.util.ArrayList;
@@ -27,12 +32,14 @@ public class GlassCamp extends Activity {
     private CardScrollView cardScrollView;
     private Balance balance;
     Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    private GestureDetector mGestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         createFirstLevelCards();
+        mGestureDetector = createGestureDetector(this);
 
         cardScrollView = new CardScrollView(this);
         ScrollAdapter adapter = new ScrollAdapter(cards);
@@ -58,9 +65,6 @@ public class GlassCamp extends Activity {
                         case 2:
                             openList();
                             break;
-                        case 3:
-                            launchNotif();
-                            break;
                     }
 
                 }
@@ -69,8 +73,37 @@ public class GlassCamp extends Activity {
     }
 
     /**
-     * Create a list of cards
+     * Launch a notif when double tap is detected
+     * @param context
+     * @return
      */
+    private GestureDetector createGestureDetector(Context context) {
+        GestureDetector gestureDetector = new GestureDetector(context);
+        //Create a base listener for generic gestures
+        gestureDetector.setBaseListener( new GestureDetector.BaseListener() {
+            @Override
+            public boolean onGesture(Gesture gesture) {
+                if (gesture == Gesture.TWO_TAP) {
+                    launchNotif();
+                    return true;
+                }
+                return false;
+            }
+        });
+        return gestureDetector;
+    }
+    /*
+    * Send generic motion events to the gesture detector
+    */
+    @Override
+    public boolean onGenericMotionEvent(MotionEvent event) {
+        return mGestureDetector != null && mGestureDetector.onMotionEvent(event);
+    }
+
+
+    /**
+         * Create a list of cards
+         */
     public void createFirstLevelCards()
     {
         cards = new ArrayList<Card>();
@@ -81,6 +114,7 @@ public class GlassCamp extends Activity {
         card.setText("Estimated balance: " + balance.getEstimatedBalance() + " €");
         card.setFootnote("Real balance : " + balance.getRealBalance() + " €");
         card.setImageLayout(Card.ImageLayout.FULL);
+        card.addImage(R.drawable.cat);
         cards.add(card);
 
         // Income card
@@ -101,10 +135,7 @@ public class GlassCamp extends Activity {
         card.setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
 
-        // launch a notification
-        card = new Card(this);
-        card.setText("Lancer une notif");
-        cards.add(card);
+
     }
 
     /**
