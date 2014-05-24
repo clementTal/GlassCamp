@@ -32,6 +32,7 @@
         android:layout_marginTop="@dimen/glass_card_margin"
         android:layout_toRightOf="@+id/left_column"
         tools:ignore="UselessLeaf"
+        android:gravity="center_vertical"
         >
 
         <TextView
@@ -46,7 +47,7 @@
         <TextView
             android:text="@string/price_placeholder"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_below="@id/ceil"
             android:textSize="32pt"
             android:gravity="center"/>

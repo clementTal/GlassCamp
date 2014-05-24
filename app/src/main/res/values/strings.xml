@@ -19,7 +19,7 @@
     <string name="price_placeholder">100€</string>
     <string name="transfer">Virement automatique</string>
     <string name="switch_off">OFF</string>
-    <string name="switch_on">OFF</string>
+    <string name="switch_on">ON</string>
     <string name="title_activity_options">OptionsActivity</string>
     <string name="hello_world">Hello world!</string>
 

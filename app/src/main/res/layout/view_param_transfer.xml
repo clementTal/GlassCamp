@@ -17,7 +17,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:textColor="#555"
+            android:textColor="#f00"
             />
 
     </RelativeLayout>
@@ -38,7 +38,6 @@
             android:text="@string/transfer"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_below="@id/ceil"
             android:textSize="12pt"
             android:gravity="center"/>
 
