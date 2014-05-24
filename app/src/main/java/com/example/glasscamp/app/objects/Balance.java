@@ -17,7 +17,6 @@ public class Balance implements Parcelable
         this.realBalance = realBalance;
         this.estimatedBalance = estimatedBalance;
         deals = new ArrayList<Deal>();
-        rand = new Random();
     }
 
     public Balance getBalance()
@@ -55,7 +54,7 @@ public class Balance implements Parcelable
     {
         String shop;
         String shops[] = {"Carrefour", "Auchan", "Leclerc", "Intermarché", "Cora", "Super U"};
-        int shopNumber = (int)(Math.random() * shops.length()); // max : 6
+        int shopNumber = (int)(Math.random() * shops.length); // max : 6
         shop = shops[shopNumber];
 
         Deal deal = new Deal(20 + (float)(Math.random() * ((100 - 20) + 1)), shop); // min : 20€; max : 100€
