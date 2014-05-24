@@ -78,25 +78,27 @@ public class GlassCamp extends Activity {
 
         //Main card.
         Card card = new Card(this);
-        card.setText(balance.getEstimatedBalance() + "€");
-        card.setFootnote("Real balance : " + balance.getRealBalance() + "€");
+        card.setText("Estimated balance: " + balance.getEstimatedBalance() + " €");
+        card.setFootnote("Real balance : " + balance.getRealBalance() + " €");
         card.setImageLayout(Card.ImageLayout.FULL);
-        card.addImage(R.drawable.cat);
         cards.add(card);
 
         // Income card
         card = new Card(this);
         card.addImage(R.drawable.dog);
+        card.setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
 
         // List icon card
         card = new Card(this);
         card.addImage(R.drawable.cat);
+        card.setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
 
         // options icon card
         card = new Card(this);
         card.addImage(R.drawable.cat);
+        card.setImageLayout(Card.ImageLayout.FULL);
         cards.add(card);
 
         // launch a notification
@@ -109,18 +111,7 @@ public class GlassCamp extends Activity {
      * Create an account and his previous deals
      */
     public Balance initAccount(){
-        Balance balance = new Balance(1500.f,1500.f);
-        ArrayList<Deal> deals = balance.getDeals();
-        Deal deal1 = new Deal(102.25f,"Auchan Rennes");
-        balance.addDeal(deal1);
-        Deal deal2 = new Deal(63.88f,"Leclerc Brest");
-        balance.addDeal(deal2);
-        Deal deal3 = new Deal(302.25f,"Opti' soin");
-        balance.addDeal(deal3);
-        Deal deal4 = new Deal(7.85f,"Mac do");
-        balance.addDeal(deal4);
-        Deal deal5 = new Deal(12.85f,"Pizza");
-        balance.addDeal(deal5);
+        Balance balance = new Balance();
         return balance;
     }
 

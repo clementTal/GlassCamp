@@ -41,12 +41,12 @@ public class ListCard extends FrameLayout
 
         View view = LayoutInflater.from(context).inflate(R.layout.list_card, null);
         List<Integer> idList = new ArrayList<Integer>(6);
-        idList.add(R.id.row1_date);idList.add(R.id.row1_value);idList.add(R.id.row1_seller);
-        idList.add(R.id.row2_date);idList.add(R.id.row2_value);idList.add(R.id.row2_seller);
-        idList.add(R.id.row3_date);idList.add(R.id.row3_value);idList.add(R.id.row3_seller);
-        idList.add(R.id.row4_date);idList.add(R.id.row4_value);idList.add(R.id.row4_seller);
-        idList.add(R.id.row5_date);idList.add(R.id.row5_value);idList.add(R.id.row5_seller);
-        idList.add(R.id.row6_date);idList.add(R.id.row6_value);idList.add(R.id.row6_seller);
+        idList.add(R.id.row1_content);
+        idList.add(R.id.row2_content);
+        idList.add(R.id.row3_content);
+        idList.add(R.id.row4_content);
+        idList.add(R.id.row5_content);
+        idList.add(R.id.row6_content);
 
         // TODO set content on card
         ((TextView)view.findViewById(R.id.title_left_col_txt)).setText(context.getString(R.string.balance));
@@ -55,9 +55,7 @@ public class ListCard extends FrameLayout
         for (int i = 0; i < elements.size(); i++)
         {
             Deal deal = elements.get(i);
-            ((TextView)view.findViewById(idList.get(i))).setText(deal.getDateString());
-            ((TextView)view.findViewById(idList.get(i+1))).setText(deal.getAmount() + " €");
-            ((TextView)view.findViewById(idList.get(i+2))).setText(deal.getShop());
+            ((TextView)view.findViewById(idList.get(i))).setText(deal.getDateString() + ", " + deal.getAmount() + " €, @:"+ deal.getShop());
         }
         this.addView(view);
     }

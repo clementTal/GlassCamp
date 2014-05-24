@@ -4,65 +4,54 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
-public class Balance implements Parcelable
+import java.util.List;
+
+public class Balance
 {
 
-    private static  float realBalance;
-    private static float estimatedBalance;
-    private static ArrayList<Deal> deals;
-    private static Balance balance;
+    private  double realBalance;
+    private double estimatedBalance;
+    private ArrayList<Deal> deals;
 
-    public Balance(float realBalance, float estimatedBalance) {
-        this.realBalance = realBalance;
-        this.estimatedBalance = estimatedBalance;
-        deals = new ArrayList<Deal>();
-        balance = this;
+    public Balance() {
+        this.realBalance = 15000.0;
+        this.estimatedBalance = 15000.0;
+        Deal deal1 = new Deal(12.25,"Auchan");
+        this.addDeal(deal1);
+        Deal deal2 = new Deal(63.88,"Leclerc");
+        this.addDeal(deal2);
+        Deal deal3 = new Deal(32.25,"Opti");
+        this.addDeal(deal3);
+        Deal deal4 = new Deal(7.85,"Mac do");
+        this.addDeal(deal4);
+        Deal deal5 = new Deal(12.85,"Pizza");
+        this.addDeal(deal5);
     }
 
-    public Balance(float realBalance, float estimatedBalance, ArrayList<Deal> deals) {
-        this.realBalance = realBalance;
-        this.estimatedBalance = estimatedBalance;
-        for (Deal deal : deals)
-        {
-            this.addDeal(deal);
-        }
-        balance = this;
+
+    public double getRealBalance() {
+        return Math.round(realBalance);
     }
 
-    public static Balance getInstance()
+    public void setRealBalance(double realBalance)
     {
-        return balance;
-    }
-
-
-    public Balance getBallance()
-    {
-        return this;
-    }
-
-    public float getRealBalance() {
-        return realBalance;
-    }
-
-    public void setRealBalance(float realBalance) {
         this.realBalance = realBalance;
     }
 
-    public float getEstimatedBalance() {
-        return estimatedBalance;
+    public double getEstimatedBalance() {
+        return Math.round(estimatedBalance);
     }
 
-    public void setEstimatedBalance(float estimatedBalance) {
+    public void setEstimatedBalance(double estimatedBalance) {
         this.estimatedBalance = estimatedBalance;
     }
 
     public void addDeal(Deal dealToAdd)
     {
-        estimatedBalance = 1000.f;
-        deals.add(dealToAdd);
+        this.getDeals().add(dealToAdd);
         for (Deal deal : deals)
         {
-            estimatedBalance -= deal.getAmount();
+            this.estimatedBalance= this.getEstimatedBalance() - deal.getAmount();
         }
     }
 
@@ -78,31 +67,10 @@ public class Balance implements Parcelable
     }
 
     public ArrayList<Deal> getDeals() {
+        if (deals == null)
+        {
+            deals = new ArrayList<Deal>();
+        }
         return deals;
-    }
-
-
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-        public Balance createFromParcel(Parcel in ) {
-            return new Balance(in.readFloat(), in.readFloat(), in.readArrayList(Deal.class.getClassLoader()));
-        }
-
-        public Balance[] newArray(int size) {
-            return new Balance[size];
-        }
-    };
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags)
-    {
-        dest.writeFloat(estimatedBalance);
-        dest.writeFloat(realBalance);
-        dest.writeList(deals);
     }
 }

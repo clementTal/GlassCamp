@@ -67,29 +67,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="10:05"
-                        android:id="@+id/row1_date"
+                        android:text=""
+                        android:id="@+id/row1_content"
                         android:paddingLeft="@dimen/list_padding"
                         android:paddingRight="@dimen/list_padding"
                         android:textSize="@dimen/list_elements_size"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="-55€"
-                        android:id="@+id/row1_value"
+                        android:text=""
+                        android:id="@+id/row2_content"
                         android:paddingLeft="@dimen/list_padding"
                         android:paddingRight="@dimen/list_padding"
                         android:textSize="@dimen/list_elements_size"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Auchan"
-                        android:id="@+id/row1_seller"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -99,29 +95,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="10:05"
-                        android:id="@+id/row2_date"
+                        android:text=""
+                        android:id="@+id/row3_content"
                         android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="-55€"
-                        android:id="@+id/row2_value"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Auchan"
-                        android:id="@+id/row2_seller"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
+                        android:paddingRight="@dimen/list_padding"
+                        android:textSize="@dimen/list_elements_size"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -131,29 +109,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="10:05"
-                        android:id="@+id/row3_date"
+                        android:text=""
+                        android:id="@+id/row4_content"
                         android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="-55€"
-                        android:id="@+id/row3_value"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Auchan"
-                        android:id="@+id/row3_seller"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
+                        android:paddingRight="@dimen/list_padding"
+                        android:textSize="@dimen/list_elements_size"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -163,29 +123,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="10:05"
-                        android:id="@+id/row4_date"
+                        android:text=""
+                        android:id="@+id/row5_content"
                         android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="-55€"
-                        android:id="@+id/row4_value"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Auchan"
-                        android:id="@+id/row4_seller"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
+                        android:paddingRight="@dimen/list_padding"
+                        android:textSize="@dimen/list_elements_size"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -195,61 +137,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="10:05"
-                        android:id="@+id/row5_date"
+                        android:text=""
+                        android:id="@+id/row6_content"
                         android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="-55€"
-                        android:id="@+id/row5_value"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Auchan"
-                        android:id="@+id/row5_seller"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-            </LinearLayout>
-            <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="10:05"
-                        android:id="@+id/row6_date"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="-55€"
-                        android:id="@+id/row6_value"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Auchan"
-                        android:id="@+id/row6_seller"
-                        android:paddingLeft="@dimen/list_padding"
-                        android:textSize="@dimen/list_elements_size"
-                        android:paddingRight="@dimen/list_padding"/>
+                        android:paddingRight="@dimen/list_padding"
+                        android:textSize="@dimen/list_elements_size"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

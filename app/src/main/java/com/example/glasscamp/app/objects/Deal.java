@@ -12,15 +12,15 @@ public class Deal implements Parcelable
 
     private Date date;
     private String shop;
-    private float amount;
+    private double amount;
 
-    public Deal(float amount, String shop) {
+    public Deal(double amount, String shop) {
         date = new Date();
         this.shop = shop;
         this.amount = amount;
     }
 
-    public Deal(float amount, String shop, Date date) {
+    public Deal(double amount, String shop, Date date) {
         this.date = date;
         this.shop = shop;
         this.amount = amount;
@@ -32,14 +32,14 @@ public class Deal implements Parcelable
 
     public String getDateString()
     {
-        String format = "yyyy-MM-dd HH:mm";
+        String format = "dd/MM";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.FRANCE);
         return sdf.format(date);
     }
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public Deal createFromParcel(Parcel in ) {
-            return new Deal(in.readFloat(), in.readString());
+            return new Deal(in.readDouble(), in.readString());
         }
 
         public Balance[] newArray(int size) {
@@ -56,11 +56,11 @@ public class Deal implements Parcelable
         this.shop = shop;
     }
 
-    public float getAmount() {
-        return amount;
+    public double getAmount() {
+        return Math.round(100);
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -72,8 +72,7 @@ public class Deal implements Parcelable
     @Override
     public void writeToParcel(Parcel dest, int flags)
     {
-        dest.writeFloat(amount);
+        dest.writeDouble(amount);
         dest.writeString(shop);
-        //dest.writeList(deals);
     }
 }

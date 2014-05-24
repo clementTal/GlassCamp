@@ -20,10 +20,10 @@
     <dimen name="glass_card_body_height">240px</dimen>
 
     <!-- The width of the left column in the two-column layout. -->
-    <dimen name="glass_card_left_column_width">240px</dimen>
+    <dimen name="glass_card_left_column_width">200px</dimen>
     <dimen name="list_padding">5px</dimen>
     <dimen name="list_title_size">55px</dimen>
-    <dimen name="list_elements_size">40px</dimen>
+    <dimen name="list_elements_size">30px</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
 
 </resources>

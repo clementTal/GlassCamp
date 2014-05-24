@@ -36,7 +36,7 @@ public class ListActivity extends Activity
     {
         super.onCreate(savedInstanceState);
 
-        balance = Balance.getInstance();
+        balance = new Balance();
         createCards();
 
         cardScrollView = new CardScrollView(this);
