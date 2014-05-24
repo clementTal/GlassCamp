@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.example.glasscamp.app.GlassCamp;
 import com.example.glasscamp.app.R;
+import com.example.glasscamp.app.objects.Balance;
 import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.timeline.LiveCard.PublishMode;
 
@@ -21,7 +22,7 @@ public class LiveCardService extends Service {
     private LiveCard mLiveCard;
     private RemoteViews mLiveCardView;
 
-    private int estimatedBalance;
+    private double estimatedBalance;
     private Random mPointsGenerator;
 
     private final Handler mHandler = new Handler();
@@ -38,7 +39,8 @@ public class LiveCardService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (mLiveCard == null) {
-
+            Balance balance = new Balance();
+            estimatedBalance = balance.getEstimatedBalance();
             // Get an instance of a live card
             mLiveCard = new LiveCard(this, LIVE_CARD_TAG);
 
@@ -50,7 +52,6 @@ public class LiveCardService extends Service {
             // Set up initial RemoteViews values
             mLiveCardView.setTextViewText(R.id.TV_notif,
                     "Solde : "+ estimatedBalance);
-
 
             // Set up the live card's action with a pending intent
             // to show a menu when tapped

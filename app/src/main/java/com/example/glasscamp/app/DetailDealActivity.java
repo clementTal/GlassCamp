@@ -15,8 +15,6 @@ import java.util.ArrayList;
 
 public class DetailDealActivity extends Activity
 {
-
-
     private ArrayList<DetailCard> cards;
     private CardScrollView cardScrollView;
     private Deal deal;

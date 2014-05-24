@@ -11,13 +11,11 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.RemoteViews;
 import android.widget.Toast;
+
 import com.example.glasscamp.app.adapters.ScrollAdapter;
 import com.example.glasscamp.app.objects.Balance;
-import com.example.glasscamp.app.objects.Deal;
 import com.google.android.glass.app.Card;
-import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.touchpad.Gesture;
 import com.google.android.glass.touchpad.GestureDetector;
 import com.google.android.glass.widget.CardScrollView;
