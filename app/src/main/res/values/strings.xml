@@ -14,6 +14,8 @@
     <string name="confirm_photo">Valider</string>
     <string name="delete">Supprimer</string>
     <string name="delete_info">Taper pour supprimer</string>
+    <string name="notif">Test notif</string>
+    <string name="display_home">Ouvrir Budgety</string>
 
 
 </resources>

@@ -9,12 +9,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 import com.example.glasscamp.app.adapters.ScrollAdapter;
 import com.example.glasscamp.app.objects.Balance;
 import com.example.glasscamp.app.objects.Deal;
 import com.example.glasscamp.app.views.ListCard;
 import com.google.android.glass.app.Card;
+import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.widget.CardScrollView;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 
 public class GlassCamp extends Activity {
     private static final int NUMBER_DEALS_DISPLAY_BY_CARD = 5;
+    private static final String LIVE_CARD_TAG = "notif";
 
     private static int PICTURE_RESULT = 0;
     private ArrayList<Card> cards;
@@ -59,6 +62,9 @@ public class GlassCamp extends Activity {
                         case 2:
                             openList();
                             break;
+                        case 3:
+                            launchNotif();
+                            break;
                     }
 
                 }
@@ -95,6 +101,11 @@ public class GlassCamp extends Activity {
         // options icon card
         card = new Card(this);
         card.addImage(R.drawable.cat);
+        cards.add(card);
+
+        // launch a notification
+        card = new Card(this);
+        card.setText("Lancer une notif");
         cards.add(card);
     }
 
@@ -170,6 +181,11 @@ public class GlassCamp extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void launchNotif(){
+        Intent i = new Intent(this, LiveCardService.class);
+        startActivity(i);
     }
 
 }
