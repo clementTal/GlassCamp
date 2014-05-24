@@ -51,7 +51,7 @@ public class LiveCardService extends Service {
             estimatedBalance += mPointsGenerator.nextInt(3);
             // Set up initial RemoteViews values
             mLiveCardView.setTextViewText(R.id.TV_notif,
-                    "Solde : "+ estimatedBalance);
+                    "Nouveau Solde : "+ estimatedBalance);
 
             // Set up the live card's action with a pending intent
             // to show a menu when tapped
