@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.*;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.glasscamp.app.adapters.CustomScrollAdapter;
 import com.example.glasscamp.app.objects.Balance;
@@ -175,14 +176,9 @@ public class GlassCamp extends Activity {
         if (requestCode == PICTURE_RESULT && resultCode == RESULT_OK) {
             balance.addRandomDeal();
             Toast.makeText(getApplicationContext(), "Dépense ajoutée.", Toast.LENGTH_SHORT).show();
-
-            createFirstLevelCards();
-            cardScrollView = new CardScrollView(this);
-            CustomScrollAdapter adapter = new CustomScrollAdapter(cards);
-            cardScrollView.setAdapter(adapter);
-            cardScrollView.activate();
+            ((TextView)findViewById(R.id.balance)).setText(balance.getEstimatedBalance() + " €");
+            
             cardScrollView.setSelection(3);
-            setContentView(cardScrollView);
 
         }
     }
