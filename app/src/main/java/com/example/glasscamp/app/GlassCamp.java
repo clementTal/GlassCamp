@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.*;
 import android.widget.AdapterView;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.example.glasscamp.app.adapters.CustomScrollAdapter;
 import com.example.glasscamp.app.objects.Balance;
+import com.example.glasscamp.app.objects.Deal;
 import com.example.glasscamp.app.views.CustomCard;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.touchpad.Gesture;
@@ -175,12 +175,33 @@ public class GlassCamp extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PICTURE_RESULT && resultCode == RESULT_OK) {
             balance.addRandomDeal();
+            verifyAlert();
             Toast.makeText(getApplicationContext(), "Dépense ajoutée.", Toast.LENGTH_SHORT).show();
-            ((TextView)findViewById(R.id.balance)).setText(balance.getEstimatedBalance() + " €");
-            
+
+            createFirstLevelCards();
+            cardScrollView = new CardScrollView(this);
+            CustomScrollAdapter adapter = new CustomScrollAdapter(cards);
+            cardScrollView.setAdapter(adapter);
+            cardScrollView.activate();
             cardScrollView.setSelection(3);
+            setContentView(cardScrollView);
 
         }
+    }
+
+    private void verifyAlert() {
+        if(balance.getEstimatedBalance() < 0){
+            launchAlert();
+        }
+    }
+
+    private void launchAlert() {
+        Intent i = new Intent(getBaseContext(), Alert.class);
+        Deal deal = balance.getDeals().get(balance.getDeals().size() - 1);
+        i.putExtra("date", deal.getDateString());
+        i.putExtra("balance", balance.getEstimatedBalance());
+        i.putExtra("dealAmount", deal.getAmount());
+        startActivity(i);
     }
 
     /**

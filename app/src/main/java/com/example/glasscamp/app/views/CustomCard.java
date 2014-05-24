@@ -27,6 +27,7 @@ public class CustomCard extends FrameLayout
 
     }
 
+
     /**
      * Init the custom view
      * @param context

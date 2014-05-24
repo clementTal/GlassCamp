@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/alert_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/alert_body_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/glass_card_body_height"
+        android:layout_marginLeft="@dimen/glass_card_margin"
+        android:layout_marginTop="@dimen/glass_card_margin"
+        android:layout_marginRight="@dimen/glass_card_margin"
+        android:layout_marginBottom="@dimen/glass_card_footer_margin"
+        tools:ignore="UselessLeaf"
+        android:background="@drawable/exclamation"
+        >
+
+        <!-- Balance text big -->
+        <TextView
+            android:id="@+id/TV_date_alert"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:text="@string/date_alert"
+            />
+
+        <!-- Footnote "tap to take a picture" -->
+        <TextView
+            android:id="@+id/TV_deal_alert"
+            android:text="@string/TV_deal_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:textSize="35sp"
+            android:layout_below="@id/TV_date_alert"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true"
+            />
+        <!-- Footnote "tap to take a picture" -->
+        <TextView
+            android:id="@+id/TV_balance_estimated"
+            android:text="@string/TV_balance_estimated"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:textSize="20sp"
+            android:layout_below="@id/TV_deal_alert"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true"
+            />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

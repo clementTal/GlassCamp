@@ -14,8 +14,8 @@ public class Balance
     private ArrayList<Deal> deals;
 
     public Balance() {
-        this.realBalance = 1500.0;
-        this.estimatedBalance = 1500.0;
+        this.realBalance = 1;
+        this.estimatedBalance = 1;
         Deal deal1 = new Deal(12.25,"Auchan");
         this.addDeal(deal1, -1);
         Deal deal2 = new Deal(63.88,"Leclerc");

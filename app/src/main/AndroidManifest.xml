@@ -31,6 +31,10 @@
             android:name="com.example.glasscamp.app.OptionsActivity"
             android:label="@string/title_activity_options" >
         </activity>
+        <activity
+            android:name="com.example.glasscamp.app.Alert"
+            android:label="@string/title_activity_alert" >
+        </activity>
     </application>
 
 </manifest>
