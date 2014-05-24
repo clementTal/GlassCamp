@@ -52,23 +52,22 @@ public class GlassCamp extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                if (cardScrollView.getSelectedItemPosition() < cards.size())
+            if (cardScrollView.getSelectedItemPosition() < cards.size())
+            {
+                switch (cardScrollView.getSelectedItemPosition())
                 {
-                    Toast.makeText(getApplicationContext(), i + "", Toast.LENGTH_SHORT).show();
-                    switch (cardScrollView.getSelectedItemPosition())
-                    {
-                        case 0:
-                            openOptions();
-                            break;
-                        case 1:
-                            openCamera();
-                            break;
-                        case 3:
-                            openList();
-                            break;
-                    }
-
+                    case 0:
+                        openOptions();
+                        break;
+                    case 1:
+                        openCamera();
+                        break;
+                    case 3:
+                        openList();
+                        break;
                 }
+
+            }
             }
         });
     }
@@ -185,7 +184,7 @@ public class GlassCamp extends Activity {
             cardScrollView.activate();
             cardScrollView.setSelection(3);
             setContentView(cardScrollView);
-
+            cardScrollView.refreshDrawableState();
         }
     }
 
