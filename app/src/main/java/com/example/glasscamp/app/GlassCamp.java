@@ -109,19 +109,23 @@ public class GlassCamp extends Activity {
         balance = initAccount();
 
         //options card.
-        CustomCard card = new CustomCard(this, R.layout.main_activity, new HashMap<Integer, String>(), new HashMap<Integer, Integer>());
+        Map images = new HashMap<Integer, Integer>();
+        images.put(R.id.settings_icon, R.drawable.icone_parametre);
+        CustomCard card = new CustomCard(this, R.layout.view_param, new HashMap<Integer, String>(), images);
         cards.add(card);
 
         //Main card.
         Map<Integer, String> values = new HashMap<Integer, String>();
         values.put(R.id.balance, balance.getEstimatedBalance() + " €");
         values.put(R.id.footnote, "Click to take a picture");
-        values.put(R.id.timestamp, balance.getRealBalance() + " €");
+        values.put(R.id.timestamp, "Real balance: " + balance.getRealBalance() + " €");
         card = new CustomCard(this, R.layout.view_main_card, values, new HashMap<Integer, Integer>());
         cards.add(card);
 
         // jauge card
-        card = new CustomCard(this, R.layout.list_card, new HashMap<Integer, String>(), new HashMap<Integer, Integer>());
+        images = new HashMap<Integer, Integer>();
+        images.put(R.id.settings_icon, R.drawable.jauge);
+        card = new CustomCard(this, R.layout.view_param, new HashMap<Integer, String>(), images);
         cards.add(card);
 
         // list card
