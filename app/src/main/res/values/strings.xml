@@ -17,5 +17,11 @@
     <string name="notif">Test notif</string>
     <string name="display_home">Ouvrir Budgety</string>
 
+    <string name="ceil">Plafond</string>
+    <string name="price_placeholder">100€</string>
+    <string name="transfer">Virement automatique</string>
+    <string name="switch_off">OFF</string>
+    <string name="switch_on">OFF</string>
+
 
 </resources>
