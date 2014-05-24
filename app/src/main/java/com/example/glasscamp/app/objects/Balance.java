@@ -4,22 +4,38 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
-import java.util.Random;
-
 public class Balance implements Parcelable
 {
 
-    private float realBalance;
-    private float estimatedBalance;
-    private ArrayList<Deal> deals;
+    private static  float realBalance;
+    private static float estimatedBalance;
+    private static ArrayList<Deal> deals;
+    private static Balance balance;
 
     public Balance(float realBalance, float estimatedBalance) {
         this.realBalance = realBalance;
         this.estimatedBalance = estimatedBalance;
         deals = new ArrayList<Deal>();
+        balance = this;
     }
 
-    public Balance getBalance()
+    public Balance(float realBalance, float estimatedBalance, ArrayList<Deal> deals) {
+        this.realBalance = realBalance;
+        this.estimatedBalance = estimatedBalance;
+        for (Deal deal : deals)
+        {
+            this.addDeal(deal);
+        }
+        balance = this;
+    }
+
+    public static Balance getInstance()
+    {
+        return balance;
+    }
+
+
+    public Balance getBallance()
     {
         return this;
     }
@@ -65,13 +81,28 @@ public class Balance implements Parcelable
         return deals;
     }
 
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Balance createFromParcel(Parcel in ) {
+            return new Balance(in.readFloat(), in.readFloat(), in.readArrayList(Deal.class.getClassLoader()));
+        }
+
+        public Balance[] newArray(int size) {
+            return new Balance[size];
+        }
+    };
+
+
     @Override
     public int describeContents() {
         return 0;
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
+    public void writeToParcel(Parcel dest, int flags)
+    {
+        dest.writeFloat(estimatedBalance);
+        dest.writeFloat(realBalance);
+        dest.writeList(deals);
     }
 }

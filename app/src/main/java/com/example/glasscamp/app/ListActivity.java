@@ -35,9 +35,8 @@ public class ListActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //balance = getIntent().getSerializableExtra("Balance");
 
-        balance = getIntent().getExtras().getParcelable("Balance");
+        balance = Balance.getInstance();
         createCards();
 
         cardScrollView = new CardScrollView(this);
@@ -71,9 +70,10 @@ public class ListActivity extends Activity
         while (idDeal < deals.size())
         {
             List<Deal> dealList = new ArrayList<Deal>();
-            for (int i = 0; i < NUMBER_DEALS_DISPLAY_BY_CARD; i++) {
+            for (int i = 0; (i < NUMBER_DEALS_DISPLAY_BY_CARD && i < deals.size()); i++) {
                 Deal deal = deals.get(i);
                 dealList.add(deal);
+                idDeal++;
             }
             cards.add(new ListCard(this, balance.getEstimatedBalance() + "", dealList));
         }

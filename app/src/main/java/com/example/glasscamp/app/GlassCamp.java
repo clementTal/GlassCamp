@@ -1,7 +1,6 @@
 package com.example.glasscamp.app;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 import com.example.glasscamp.app.adapters.ScrollAdapter;
 import com.example.glasscamp.app.objects.Balance;
 import com.example.glasscamp.app.objects.Deal;
-import com.example.glasscamp.app.views.ListCard;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.widget.CardScrollView;
@@ -23,8 +21,6 @@ import java.util.ArrayList;
 
 
 public class GlassCamp extends Activity {
-    private static final int NUMBER_DEALS_DISPLAY_BY_CARD = 5;
-    private static final String LIVE_CARD_TAG = "notif";
 
     private static int PICTURE_RESULT = 0;
     private ArrayList<Card> cards;
@@ -123,6 +119,8 @@ public class GlassCamp extends Activity {
         balance.addDeal(deal3);
         Deal deal4 = new Deal(7.85f,"Mac do");
         balance.addDeal(deal4);
+        Deal deal5 = new Deal(12.85f,"Pizza");
+        balance.addDeal(deal5);
         return balance;
     }
 
@@ -145,8 +143,8 @@ public class GlassCamp extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PICTURE_RESULT && resultCode == RESULT_OK) {
             balance.addRandomDeal();
+            Toast.makeText(getApplicationContext(), "Dépense ajoutée.", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, ListActivity.class);
-            i.putExtra("Balance", balance);
             startActivity(i);
         }
     }
@@ -157,7 +155,6 @@ public class GlassCamp extends Activity {
      */
     private void openList(){
         Intent i = new Intent(this, ListActivity.class);
-        i.putExtra("Balance", balance);
         startActivity(i);
     }
 
