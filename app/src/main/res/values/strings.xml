@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="title_activity_detail_deal">DetailDealActivity</string>
     <string name="title_activity_list">ListActivity</string>
-
-
     <string name="app_name">Budgety</string>
     <string name="action_settings">Settings</string>
     <string name="real_balance">Solde réel:</string>
@@ -16,12 +15,12 @@
     <string name="delete_info">Taper pour supprimer</string>
     <string name="notif">Test notif</string>
     <string name="display_home">Ouvrir Budgety</string>
-
     <string name="ceil">Plafond</string>
     <string name="price_placeholder">100€</string>
     <string name="transfer">Virement automatique</string>
     <string name="switch_off">OFF</string>
     <string name="switch_on">OFF</string>
-
+    <string name="title_activity_options">OptionsActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

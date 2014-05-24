@@ -8,6 +8,7 @@ import com.google.android.glass.app.Card;
 import com.google.android.glass.widget.CardScrollAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by clem on 23/05/14.
@@ -15,9 +16,9 @@ import java.util.ArrayList;
 public class CustomScrollAdapter extends CardScrollAdapter
 {
 
-    private ArrayList<? extends FrameLayout> mCards = null;
+    private List<? extends FrameLayout> mCards = null;
 
-    public CustomScrollAdapter(final ArrayList<? extends FrameLayout> cards)
+    public CustomScrollAdapter(final List<? extends FrameLayout> cards)
     {
         this.mCards = cards;
     }

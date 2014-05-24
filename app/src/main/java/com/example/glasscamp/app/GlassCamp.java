@@ -56,8 +56,12 @@ public class GlassCamp extends Activity {
             {
                 if (cardScrollView.getSelectedItemPosition() < cards.size() - 1)
                 {
+                    Toast.makeText(getApplicationContext(), i + "", Toast.LENGTH_SHORT).show();
                     switch (cardScrollView.getSelectedItemPosition())
                     {
+                        case 0:
+                            openOptions();
+                            break;
                         case 1:
                             openCamera();
                             break;
@@ -130,7 +134,6 @@ public class GlassCamp extends Activity {
 
         // list card
         values = new HashMap<Integer, String>();
-        values.put(R.id.title_left_col_txt, this.getString(R.string.balance));
         values.put(R.id.data_left_col_txt, balance.getEstimatedBalance() + " €");
         values.put(R.id.row1_content, balance.getDeals().get(0).getDateString() + ", " + balance.getDeals().get(0).getAmount() + " €, @:"+ balance.getDeals().get(0).getShop());
         values.put(R.id.row2_content, balance.getDeals().get(1).getDateString() + ", " + balance.getDeals().get(1).getAmount() + " €, @:"+ balance.getDeals().get(1).getShop());
@@ -156,6 +159,12 @@ public class GlassCamp extends Activity {
     {
         int PICTURE_RESULT = 0;
         this.startActivityForResult(camera, PICTURE_RESULT);
+    }
+
+    private void openOptions()
+    {
+        Intent i = new Intent(getBaseContext(), OptionsActivity.class);
+        startActivity(i);
     }
 
     /**
