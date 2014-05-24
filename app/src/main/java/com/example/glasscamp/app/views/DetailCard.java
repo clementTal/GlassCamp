@@ -28,10 +28,11 @@ public class DetailCard extends FrameLayout {
      * @param context
      */
     private void initView(final Context context, Deal deal){
-        View view = LayoutInflater.from(context).inflate(R.layout.view_main_card, this);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_detail_deal, this);
         ((TextView)view.findViewById(R.id.deal_date)).setText(deal.getDateString());
         ((TextView)view.findViewById(R.id.deal_value)).setText(deal.getAmount() + " €");
         ((TextView)view.findViewById(R.id.deal_shop)).setText(deal.getShop());
+        view.setVisibility(view.VISIBLE);
         this.addView(view);
     }
 }

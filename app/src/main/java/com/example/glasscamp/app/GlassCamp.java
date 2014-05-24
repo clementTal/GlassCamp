@@ -6,10 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
+import android.view.*;
 import android.widget.AdapterView;
 import android.widget.Toast;
 import com.example.glasscamp.app.adapters.CustomScrollAdapter;
@@ -54,7 +51,7 @@ public class GlassCamp extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                if (cardScrollView.getSelectedItemPosition() < cards.size() - 1)
+                if (cardScrollView.getSelectedItemPosition() < cards.size())
                 {
                     Toast.makeText(getApplicationContext(), i + "", Toast.LENGTH_SHORT).show();
                     switch (cardScrollView.getSelectedItemPosition())
@@ -178,7 +175,15 @@ public class GlassCamp extends Activity {
         if (requestCode == PICTURE_RESULT && resultCode == RESULT_OK) {
             balance.addRandomDeal();
             Toast.makeText(getApplicationContext(), "Dépense ajoutée.", Toast.LENGTH_SHORT).show();
+
+            createFirstLevelCards();
+            cardScrollView = new CardScrollView(this);
+            CustomScrollAdapter adapter = new CustomScrollAdapter(cards);
+            cardScrollView.setAdapter(adapter);
+            cardScrollView.activate();
             cardScrollView.setSelection(3);
+            setContentView(cardScrollView);
+
         }
     }
 
@@ -188,13 +193,18 @@ public class GlassCamp extends Activity {
      */
     private void openList(){
         Intent i = new Intent(this, DetailDealActivity.class);
+        i.putExtra("Deal0", balance.getDeals().get(0));
+        i.putExtra("Deal1", balance.getDeals().get(1));
+        i.putExtra("Deal2", balance.getDeals().get(2));
+        i.putExtra("Deal3", balance.getDeals().get(3));
+        i.putExtra("Deal4", balance.getDeals().get(4));
         startActivity(i);
     }
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.glass_camp, menu);
         return true;

@@ -10,20 +10,27 @@ import com.example.glasscamp.app.views.DetailCard;
 import com.google.android.glass.widget.CardScrollView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class DetailDealActivity extends Activity
 {
     private ArrayList<DetailCard> cards;
     private CardScrollView cardScrollView;
-    private Deal deal;
+    private List<Deal> deals;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
 
-        deal = getIntent().getExtras().getParcelable("Deal");
+        deals = new ArrayList<Deal>();
+        deals.add((Deal) getIntent().getExtras().getParcelable("Deal0"));
+        deals.add((Deal) getIntent().getExtras().getParcelable("Deal1"));
+        deals.add((Deal) getIntent().getExtras().getParcelable("Deal2"));
+        deals.add((Deal) getIntent().getExtras().getParcelable("Deal3"));
+        deals.add((Deal) getIntent().getExtras().getParcelable("Deal4"));
+
         createCards();
 
         cardScrollView = new CardScrollView(this);
@@ -36,8 +43,11 @@ public class DetailDealActivity extends Activity
 
     private void createCards()
     {
-        DetailCard card = new DetailCard(this, deal);
-        cards.add(card);
+        for (Deal deal : deals)
+        {
+            DetailCard card = new DetailCard(this, deal);
+            cards.add(card);
+        }
     }
 
 
